@@ -1326,11 +1326,11 @@ section {
 }
 
 .portfolio-image.analytics {
-    background-image: url('images/portfolio-analytics.jpg');
+    background-image: url('../images/portfolio-analytics.jpg');
 }
 
 .portfolio-image.music {
-    background-image: url('images/portfolio-music.jpg');
+    background-image: url('../images/portfolio-music.jpg');
 }
 
 .portfolio-content {
@@ -1805,4 +1805,5 @@ footer {
     outline-offset: 2px;
 
 }
+
 
