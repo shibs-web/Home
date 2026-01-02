@@ -1322,7 +1322,7 @@ section {
 
 /* Specific portfolio images */
 .portfolio-image.ecommerce {
-    background-image: url('../images/portfolio-ecommerce.jpg');
+    background-image: url('/images/portfolio-ecommerce.jpg');
 }
 
 .portfolio-image.analytics {
@@ -1330,7 +1330,7 @@ section {
 }
 
 .portfolio-image.music {
-    background-image: url('../images/portfolio-music.jpg');
+    background-image: url('.../images/portfolio-music.jpg');
 }
 
 .portfolio-content {
@@ -1805,5 +1805,6 @@ footer {
     outline-offset: 2px;
 
 }
+
 
 
