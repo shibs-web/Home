@@ -1322,7 +1322,7 @@ section {
 
 /* Specific portfolio images */
 .portfolio-image.ecommerce {
-    background-image: url('images/portfolio-ecommerce.jpg');
+    background-image: url('../images/portfolio-ecommerce.jpg');
 }
 
 .portfolio-image.analytics {
@@ -1805,3 +1805,4 @@ footer {
     outline-offset: 2px;
 
 }
+
