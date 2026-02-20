@@ -1334,6 +1334,14 @@ section {
     background-image: url('images/portfolio-music.jpg');
 }
 
+.portfolio-image.education {
+    background-image: url('images/Education.jpg');
+}
+
+.portfolio-image.cv {
+    background-image: url('images/CV.jpg');
+}
+
 .portfolio-content {
     padding: 2rem;
 }
