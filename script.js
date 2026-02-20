@@ -195,7 +195,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const workType = this.querySelector('input[placeholder="نوع العمل"]').value;
     const projectType = this.querySelector('input[placeholder="نوع المشروع"]').value;
     const projectDetails = this.querySelector('textarea[placeholder="حدثني عن مشروعك أو فكرتك..."]').value;
-    const phoneNumber = '+491792028347'; 
+    const phoneNumber = '+963988592846'; 
 
     // Construct the WhatsApp message
     const message = `مرحبًا، اسمي ${fullName}.\nنوع العمل: ${workType}\nنوع المشروع: ${projectType}\nتفاصيل المشروع: ${projectDetails}`; 
@@ -207,4 +207,5 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
     // Optionally, reset the form
     this.reset();
+
 });
