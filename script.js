@@ -1,210 +1,393 @@
+(function () {
+    'use strict';
 
-// Mobile menu functionality
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileNav = document.getElementById('mobileNav');
+    const SELECTORS = {
+        navbar: '#navbar',
+        sections: 'section[id]',
+        desktopNavLinks: '.nav-links a[href^="#"]',
+        mobileNavLinks: '.mobile-nav a[href^="#"]',
+        fadeInElements: '.fade-in',
+        timelineItems: '.timeline-item',
+        timelineContainer: '.timeline-container',
+        timelineProgress: '.timeline-progress',
+        timelineFilters: '.timeline-filter',
+        timelineNodes: '.timeline-node',
+        sliderItems: '.slider-image-item',
+        sliderImages: '.slider-image-item img',
+        lightbox: '#imageLightbox',
+        lightboxImage: '#lightboxImage',
+        lightboxClose: '#lightboxClose',
+        lightboxPrev: '#lightboxPrev',
+        lightboxNext: '#lightboxNext'
+    };
 
-mobileMenuBtn.addEventListener('click', function() {
-    mobileMenuBtn.classList.toggle('active');
-    mobileNav.classList.toggle('active');
-});
+    const IDS = {
+        mobileMenuBtn: 'mobileMenuBtn',
+        mobileNav: 'mobileNav',
+        sliderTrack: 'sliderTrack',
+        sliderPrev: 'sliderPrev',
+        sliderNext: 'sliderNext',
+        sliderDots: 'sliderDots'
+    };
 
-// Close mobile menu when clicking on links
-document.querySelectorAll('.mobile-nav a').forEach(function(link) {
-    link.addEventListener('click', function() {
-        mobileMenuBtn.classList.remove('active');
-        mobileNav.classList.remove('active');
-    });
-});
+    const rafThrottle = (callback) => {
+        let ticking = false;
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        return (...args) => {
+            if (ticking) {
+                return;
+            }
+
+            ticking = true;
+            requestAnimationFrame(() => {
+                callback(...args);
+                ticking = false;
             });
+        };
+    };
+
+    const initMobileMenu = () => {
+        const mobileMenuBtn = document.getElementById(IDS.mobileMenuBtn);
+        const mobileNav = document.getElementById(IDS.mobileNav);
+
+        if (!mobileMenuBtn || !mobileNav) {
+            return;
         }
-    });
-});
 
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
+        const closeMenu = () => {
+            mobileMenuBtn.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        };
 
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
 
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
+        mobileMenuBtn.addEventListener('click', () => {
+            const isActive = mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active', isActive);
+            mobileMenuBtn.setAttribute('aria-expanded', String(isActive));
+        });
 
-document.querySelectorAll('.fade-in').forEach(function(el) {
-    observer.observe(el);
-});
+        document.querySelectorAll(SELECTORS.mobileNavLinks).forEach((link) => {
+            link.addEventListener('click', closeMenu);
+        });
 
-// Update active menu item based on scroll
-function updateActiveMenuItem() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const menuItem = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-        const mobileMenuItem = document.querySelector(`.mobile-nav a[href="#${sectionId}"]`);
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            // Remove active class from all menu items
-            document.querySelectorAll('.nav-links a').forEach(item => item.classList.remove('active'));
-            document.querySelectorAll('.mobile-nav a').forEach(item => item.classList.remove('active'));
-            
-            // Add active class to current menu item
-            if (menuItem) menuItem.classList.add('active');
-            if (mobileMenuItem) mobileMenuItem.classList.add('active');
-        }
-    });
-}
-
-// Listen for scroll events
-window.addEventListener('scroll', updateActiveMenuItem);
-
-// Set initial active state
-updateActiveMenuItem();
-
-// Timeline functionality
-function initTimeline() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineProgress = document.querySelector('.timeline-progress');
-    const timelineFilters = document.querySelectorAll('.timeline-filter');
-    
-    // Timeline scroll progress
-    function updateTimelineProgress() {
-        const timelineContainer = document.querySelector('.timeline-container');
-        const containerRect = timelineContainer.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        
-        if (containerRect.top < windowHeight && containerRect.bottom > 0) {
-            const progress = Math.max(0, Math.min(1, 
-                (windowHeight - containerRect.top) / (containerRect.height + windowHeight)
-            ));
-            timelineProgress.style.height = `${progress * 100}%`;
-        }
-    }
-    
-    // Timeline item visibility
-    function updateTimelineItems() {
-        timelineItems.forEach((item, index) => {
-            const rect = item.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight * 0.8;
-            
-            if (isVisible && !item.classList.contains('visible')) {
-                setTimeout(() => {
-                    item.classList.add('visible');
-                }, index * 200);
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeMenu();
             }
         });
-    }
-    
-    // Timeline filtering
-    timelineFilters.forEach(filter => {
-        filter.addEventListener('click', function() {
-            const filterValue = this.getAttribute('data-filter');
-            
-            // Update active filter
-            timelineFilters.forEach(f => f.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter timeline items
-            timelineItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                if (filterValue === 'all' || category === filterValue) {
-                    item.style.display = 'block';
+    };
+
+    const initSmoothScrolling = () => {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', (event) => {
+                const href = anchor.getAttribute('href');
+                if (!href || href === '#') {
+                    return;
+                }
+
+                const target = document.querySelector(href);
+                if (!target) {
+                    return;
+                }
+
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    };
+
+    const initScrollReveal = () => {
+        const fadeElements = document.querySelectorAll(SELECTORS.fadeInElements);
+        if (!fadeElements.length || !('IntersectionObserver' in window)) {
+            fadeElements.forEach((element) => element.classList.add('visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        fadeElements.forEach((element) => observer.observe(element));
+    };
+
+    const initNavbarState = () => {
+        const navbar = document.querySelector(SELECTORS.navbar);
+        const sections = Array.from(document.querySelectorAll(SELECTORS.sections));
+        const desktopLinks = Array.from(document.querySelectorAll(SELECTORS.desktopNavLinks));
+        const mobileLinks = Array.from(document.querySelectorAll(SELECTORS.mobileNavLinks));
+
+        if (!sections.length) {
+            return;
+        }
+
+        const setActiveLink = (sectionId) => {
+            [...desktopLinks, ...mobileLinks].forEach((link) => {
+                const isCurrent = link.getAttribute('href') === `#${sectionId}`;
+                link.classList.toggle('active', isCurrent);
+            });
+        };
+
+        const handleScroll = () => {
+            if (navbar) {
+                navbar.classList.toggle('scrolled', window.scrollY > 100);
+            }
+
+            const scrollPosition = window.pageYOffset;
+            let activeSectionId = sections[0].id;
+
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    activeSectionId = section.id;
+                }
+            });
+
+            setActiveLink(activeSectionId);
+        };
+
+        const throttledScroll = rafThrottle(handleScroll);
+        window.addEventListener('scroll', throttledScroll, { passive: true });
+        handleScroll();
+    };
+
+    const initTimeline = () => {
+        const timelineItems = Array.from(document.querySelectorAll(SELECTORS.timelineItems));
+        const timelineProgress = document.querySelector(SELECTORS.timelineProgress);
+        const timelineContainer = document.querySelector(SELECTORS.timelineContainer);
+        const timelineFilters = document.querySelectorAll(SELECTORS.timelineFilters);
+        const timelineNodes = document.querySelectorAll(SELECTORS.timelineNodes);
+
+        if (!timelineItems.length || !timelineContainer || !timelineProgress) {
+            return;
+        }
+
+        const updateTimelineProgress = () => {
+            const containerRect = timelineContainer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (containerRect.top < windowHeight && containerRect.bottom > 0) {
+                const progress = Math.max(
+                    0,
+                    Math.min(1, (windowHeight - containerRect.top) / (containerRect.height + windowHeight))
+                );
+                timelineProgress.style.height = `${progress * 100}%`;
+            }
+        };
+
+        const updateTimelineItems = () => {
+            timelineItems.forEach((item, index) => {
+                const rect = item.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight * 0.8;
+
+                if (isVisible && !item.classList.contains('visible')) {
                     setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(30px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
+                        item.classList.add('visible');
+                    }, index * 150);
+                }
+            });
+        };
+
+        timelineFilters.forEach((filter) => {
+            filter.addEventListener('click', () => {
+                const filterValue = filter.getAttribute('data-filter');
+
+                timelineFilters.forEach((btn) => btn.classList.remove('active'));
+                filter.classList.add('active');
+
+                timelineItems.forEach((item) => {
+                    const category = item.getAttribute('data-category');
+                    const shouldShow = filterValue === 'all' || category === filterValue;
+
+                    if (shouldShow) {
+                        item.style.display = 'block';
+                        requestAnimationFrame(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        });
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        timelineNodes.forEach((node) => {
+            node.addEventListener('click', () => {
+                timelineNodes.forEach((item) => item.classList.remove('active'));
+                node.classList.add('active');
+
+                const timelineItem = node.closest('.timeline-item');
+                if (timelineItem) {
+                    timelineItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             });
         });
-    });
-    
-    // Timeline node interactions
-    document.querySelectorAll('.timeline-node').forEach(node => {
-        node.addEventListener('click', function() {
-            // Remove active class from all nodes
-            document.querySelectorAll('.timeline-node').forEach(n => n.classList.remove('active'));
-            // Add active class to clicked node
-            this.classList.add('active');
-            
-            // Smooth scroll to the timeline item
-            const timelineItem = this.closest('.timeline-item');
-            timelineItem.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
+
+        const onScroll = rafThrottle(() => {
+            updateTimelineProgress();
+            updateTimelineItems();
         });
-    });
-    
-    // Listen for scroll events
-    window.addEventListener('scroll', () => {
+
+        window.addEventListener('scroll', onScroll, { passive: true });
         updateTimelineProgress();
         updateTimelineItems();
-    });
-    
-    // Initial calls
-    updateTimelineProgress();
-    updateTimelineItems();
-}
+    };
 
-// Initialize timeline when DOM is ready
+    const initImageSlider = () => {
+        const sliderTrack = document.getElementById(IDS.sliderTrack);
+        const sliderPrev = document.getElementById(IDS.sliderPrev);
+        const sliderNext = document.getElementById(IDS.sliderNext);
+        const sliderDotsContainer = document.getElementById(IDS.sliderDots);
 
-document.addEventListener('DOMContentLoaded', initTimeline);
+        if (!sliderTrack || !sliderPrev || !sliderNext || !sliderDotsContainer) {
+            return;
+        }
 
+        const sliderItems = Array.from(document.querySelectorAll(SELECTORS.sliderItems));
+        const itemCount = sliderItems.length;
+        if (!itemCount) {
+            return;
+        }
 
+        let currentIndex = 0;
 
+        const goToSlide = (index) => {
+            currentIndex = ((index % itemCount) + itemCount) % itemCount;
+            sliderTrack.style.transform = `translateX(${-currentIndex * 100}%)`;
 
-// Contact form submission via WhatsApp
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
+            sliderDotsContainer.querySelectorAll('.slider-dot').forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === currentIndex);
+            });
+        };
 
-    // Get form values
-    const fullName = this.querySelector('input[placeholder="الاسم الكامل"]').value;
-    const workType = this.querySelector('input[placeholder="نوع العمل"]').value;
-    const projectType = this.querySelector('input[placeholder="نوع المشروع"]').value;
-    const projectDetails = this.querySelector('textarea[placeholder="حدثني عن مشروعك أو فكرتك..."]').value;
-    const phoneNumber = '+963988592846'; 
+        sliderDotsContainer.innerHTML = '';
+        sliderItems.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot';
+            dot.type = 'button';
+            dot.setAttribute('aria-label', `Slide ${index + 1}`);
+            dot.classList.toggle('active', index === 0);
+            dot.addEventListener('click', () => goToSlide(index));
+            sliderDotsContainer.appendChild(dot);
+        });
 
-    // Construct the WhatsApp message
-    const message = `مرحبًا، اسمي ${fullName}.\nنوع العمل: ${workType}\nنوع المشروع: ${projectType}\nتفاصيل المشروع: ${projectDetails}`; 
-    const encodedMessage = encodeURIComponent(message);
+        sliderNext.addEventListener('click', (event) => {
+            event.preventDefault();
+            goToSlide(currentIndex + 1);
+        });
 
-    // Open WhatsApp with the pre-filled message
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
+        sliderPrev.addEventListener('click', (event) => {
+            event.preventDefault();
+            goToSlide(currentIndex - 1);
+        });
 
-    // Optionally, reset the form
-    this.reset();
-});
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                goToSlide(currentIndex + 1);
+            } else if (event.key === 'ArrowLeft') {
+                goToSlide(currentIndex - 1);
+            }
+        });
+
+        goToSlide(0);
+    };
+
+    const initLightbox = () => {
+        const lightbox = document.querySelector(SELECTORS.lightbox);
+        const lightboxImage = document.querySelector(SELECTORS.lightboxImage);
+        const lightboxClose = document.querySelector(SELECTORS.lightboxClose);
+        const lightboxPrev = document.querySelector(SELECTORS.lightboxPrev);
+        const lightboxNext = document.querySelector(SELECTORS.lightboxNext);
+        const sliderImages = Array.from(document.querySelectorAll(SELECTORS.sliderImages));
+
+        if (!lightbox || !lightboxImage || !lightboxClose || !lightboxPrev || !lightboxNext || !sliderImages.length) {
+            return;
+        }
+
+        const imageUrls = sliderImages.map((img) => img.src);
+        let currentIndex = 0;
+
+        const openLightbox = (index) => {
+            currentIndex = index;
+            lightboxImage.src = imageUrls[currentIndex];
+            lightbox.classList.add('active');
+        };
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+        };
+
+        const showNext = () => {
+            currentIndex = (currentIndex + 1) % imageUrls.length;
+            lightboxImage.src = imageUrls[currentIndex];
+        };
+
+        const showPrev = () => {
+            currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
+            lightboxImage.src = imageUrls[currentIndex];
+        };
+
+        sliderImages.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => openLightbox(index));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', showPrev);
+        lightboxNext.addEventListener('click', showNext);
+
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (!lightbox.classList.contains('active')) {
+                return;
+            }
+
+            if (event.key === 'Escape') {
+                closeLightbox();
+            } else if (event.key === 'ArrowLeft') {
+                showPrev();
+            } else if (event.key === 'ArrowRight') {
+                showNext();
+            }
+        });
+    };
+
+    const init = () => {
+        initMobileMenu();
+        initSmoothScrolling();
+        initScrollReveal();
+        initNavbarState();
+        initTimeline();
+        initImageSlider();
+        initLightbox();
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
