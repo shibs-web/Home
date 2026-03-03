@@ -30,6 +30,10 @@
         sliderDots: 'sliderDots'
     };
 
+    const BREAKPOINTS = {
+        mobile: '(max-width: 768px)'
+    };
+
     const rafThrottle = (callback) => {
         let ticking = false;
 
@@ -77,6 +81,19 @@
                 closeMenu();
             }
         });
+
+        const mobileMediaQuery = window.matchMedia(BREAKPOINTS.mobile);
+        const handleViewportChange = (event) => {
+            if (!event.matches) {
+                closeMenu();
+            }
+        };
+
+        if (typeof mobileMediaQuery.addEventListener === 'function') {
+            mobileMediaQuery.addEventListener('change', handleViewportChange);
+        } else if (typeof mobileMediaQuery.addListener === 'function') {
+            mobileMediaQuery.addListener(handleViewportChange);
+        }
     };
 
     const initSmoothScrolling = () => {
