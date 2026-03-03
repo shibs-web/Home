@@ -1246,19 +1246,19 @@ section {
 
 /* Specific portfolio images */
 .portfolio-image.doctorlog {
-    background-image: url('images/doctorlog.jpg');
+    background-image: url('../images/doctorlog.jpg');
 }
 
 .portfolio-image.store {
-    background-image: url('images/store.jpg');
+    background-image: url('../images/store.jpg');
 }
 
 .portfolio-image.lawyer {
-    background-image: url('images/lawyer.jpg');
+    background-image: url('/images/lawyer.jpg');
 }
 
 .portfolio-image.cv {
-    background-image: url('images/cv.jpg');
+    background-image: url('./images/cv.jpg');
 }
 
 .portfolio-image.education {
