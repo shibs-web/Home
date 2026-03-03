@@ -1645,10 +1645,6 @@ footer {
     }
 
     .hero {
-        padding-top: 200px;
-    }
-
-    .hero {
         padding-top: 150px;
     }
 
@@ -1754,6 +1750,10 @@ footer {
 
     .hero h1 {
         font-size: 2rem;
+    }
+
+    .hero {
+        padding-top: 130px;
     }
 
     .section-title {
@@ -1955,7 +1955,7 @@ footer {
 @media (max-width: 768px) {
     .image-slider-container {
         gap: 1rem;
-        padding: 0 50px;
+        padding: 0 45px;
     }
 
     .slider-arrow {
@@ -1965,11 +1965,13 @@ footer {
     }
 
     .slider-arrow-left {
-        margin-right: 10px;
+        right: 0;
+        margin-right: 0;
     }
 
     .slider-arrow-right {
-        margin-left: 10px;
+        left: 0;
+        margin-left: 0;
     }
 
     .slider-wrapper {
@@ -1979,6 +1981,18 @@ footer {
     .slider-title {
         font-size: 1.2rem;
         margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-slider-container {
+        padding: 0 40px;
+    }
+
+    .slider-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
     }
 }
 
@@ -2120,6 +2134,5 @@ footer {
         left: 10px;
     }
 }
-
 
 
