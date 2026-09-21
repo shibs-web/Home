@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اشترك — شِبس</title>
+<meta name="description" content="اطلب اشتراكاً في أحد أنظمة شِبس: اختر المشروع، نوع الاشتراك، عدد المستخدمين والأجهزة، واحصل على سعر تقديري فوري.">
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<header id="header">
+    <div class="wrap header-bar">
+        <a href="index.html" class="brand">
+            <span class="brand-mark">
+                <img src="logo.png" alt="شِبس" width="42" height="42">
+            </span>
+            <span class="brand-text">
+                <span class="brand-name">شِبس</span>
+                <span class="brand-tagline">شيفرة برمجية سريعة</span>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html#services">خدماتنا</a>
+            <a href="index.html#industries">قطاعاتنا</a>
+            <a href="projects.html">أعمالنا</a>
+            <a href="subscribe.html">اشترك</a>
+            <a href="index.html#why">لماذا شِبس</a>
+            <a href="index.html#contact">تواصل معنا</a>
+        </nav>
+
+        <a href="index.html#contact" class="btn btn-primary btn-small header-cta">اطلب استشارة</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html#services">خدماتنا</a>
+        <a href="index.html#industries">قطاعاتنا</a>
+        <a href="projects.html">أعمالنا</a>
+        <a href="subscribe.html">اشترك</a>
+        <a href="index.html#why">لماذا شِبس</a>
+        <a href="index.html#contact">تواصل معنا</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="page-hero">
+        <div class="wrap">
+            <h1>اطلب اشتراكاً</h1>
+            <p>اختر مشروعك، حدد نوع الاشتراك وعدد المستخدمين والأجهزة، واحصل على سعر تقديري فوري قبل إرسال الطلب.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="wrap contact-grid">
+            <div class="contact-info reveal">
+                <h2>تفاصيل الاشتراك</h2>
+                <p>السعر أدناه تقديري ويتحدّث تلقائياً حسب اختياراتك — التأكيد النهائي يكون بعد تواصلنا معك.</p>
+
+                <div class="estimate-box">
+                    <div class="estimate-row">
+                        <span class="estimate-label">السعر التقديري</span>
+                        <span class="estimate-price" id="estimatePrice">—</span>
+                    </div>
+                    <p class="estimate-note" id="estimateNote">اختر مشروعاً ونوع اشتراك لعرض السعر التقديري.</p>
+                    <ul class="plan-features" id="planFeatures"></ul>
+                </div>
+            </div>
+
+            <form class="contact-form reveal" id="subscribeForm">
+                <div class="field">
+                    <label for="projectSelect">المشروع</label>
+                    <select id="projectSelect" name="project" required></select>
+                </div>
+                <div class="field">
+                    <label for="planSelect">نوع الاشتراك</label>
+                    <select id="planSelect" name="plan" required disabled></select>
+                </div>
+                <div class="field">
+                    <label for="usersInput">عدد المستخدمين</label>
+                    <input id="usersInput" name="users" type="number" min="1" step="1" disabled required>
+                </div>
+                <div class="field">
+                    <label for="devicesInput">عدد الأجهزة</label>
+                    <input id="devicesInput" name="devices" type="number" min="1" step="1" disabled required>
+                </div>
+                <div class="field">
+                    <label for="subName">الاسم</label>
+                    <input id="subName" name="name" type="text" required>
+                </div>
+                <div class="field">
+                    <label for="subEmail">البريد الإلكتروني</label>
+                    <input id="subEmail" name="email" type="email">
+                </div>
+                <div class="field">
+                    <label for="subNotes">ملاحظات إضافية</label>
+                    <textarea id="subNotes" name="notes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">إرسال طلب الاشتراك</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap footer-bar">
+        <a href="index.html" class="brand brand-footer">
+            <span class="brand-mark">
+                <img src="logo.png" alt="شِبس" width="42" height="42">
+            </span>
+            <span class="brand-text">
+                <span class="brand-name">شِبس</span>
+                <span class="brand-tagline">شيفرة برمجية سريعة</span>
+            </span>
+        </a>
+        <nav class="footer-links">
+            <a href="projects.html">أعمالنا</a>
+            <a href="impressum.html">بصمة</a>
+            <a href="datenschutz.html">سياسة الخصوصية</a>
+        </nav>
+        <p class="footer-copy">© 2026 شِبس — جميع الحقوق محفوظة.</p>
+    </div>
+</footer>
+
+<script src="subscriptions-data.js"></script>
+<script src="script.js"></script>
+<script src="subscribe.js"></script>
+</body>
+</html>
