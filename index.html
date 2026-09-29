@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شِبس — شيفرة برمجية سريعة</title>
+<meta name="description" content="شِبس، شركة برمجيات تبني تطبيقات سطح المكتب، مواقع وتطبيقات الويب، تطبيقات الجوال، والأنظمة الإدارية المخصصة. شيفرة برمجية سريعة.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.shibs.doctorlog.de/">
+<meta name="theme-color" content="#060a18">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="img/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Google Search Console (optional): paste your verification tag here, e.g.
+<meta name="google-site-verification" content="YOUR_CODE">
+-->
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="شِبس">
+<meta property="og:locale" content="ar_SY">
+<meta property="og:title" content="شِبس — شيفرة برمجية سريعة">
+<meta property="og:description" content="شِبس، شركة برمجيات تبني تطبيقات سطح المكتب، مواقع وتطبيقات الويب، تطبيقات الجوال، والأنظمة الإدارية المخصصة. شيفرة برمجية سريعة.">
+<meta property="og:url" content="https://www.shibs.doctorlog.de/">
+<meta property="og:image" content="https://www.shibs.doctorlog.de/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="شعار شِبس — شيفرة برمجية سريعة">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="شِبس — شيفرة برمجية سريعة">
+<meta name="twitter:description" content="شِبس، شركة برمجيات تبني تطبيقات سطح المكتب، مواقع وتطبيقات الويب، تطبيقات الجوال، والأنظمة الإدارية المخصصة. شيفرة برمجية سريعة.">
+<meta name="twitter:image" content="https://www.shibs.doctorlog.de/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="home.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.shibs.doctorlog.de/#organization",
+      "name": "شِبس",
+      "alternateName": ["shibs", "شيفرة برمجية سريعة"],
+      "url": "https://www.shibs.doctorlog.de/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.shibs.doctorlog.de/img/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://www.shibs.doctorlog.de/img/og-image.jpg",
+      "description": "شركة برمجيات تبني تطبيقات سطح المكتب، مواقع وتطبيقات الويب، تطبيقات الجوال، والأنظمة الإدارية المخصصة.",
+      "email": "shibs@outlook.de",
+      "telephone": "+963988592846",
+      "address": { "@type": "PostalAddress", "addressCountry": "SY" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+963988592846",
+        "email": "shibs@outlook.de",
+        "contactType": "customer service",
+        "availableLanguage": ["ar", "de", "en"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.shibs.doctorlog.de/#website",
+      "url": "https://www.shibs.doctorlog.de/",
+      "name": "شِبس",
+      "inLanguage": "ar",
+      "publisher": { "@id": "https://www.shibs.doctorlog.de/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body class="home">
+
+<a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<header id="header">
+    <div class="wrap header-bar">
+        <a href="index.html" class="brand" aria-label="شِبس — الصفحة الرئيسية">
+            <span class="brand-mark"><img src="img/logo-96.png" alt="" width="42" height="42"></span>
+            <span class="brand-text">
+                <span class="brand-name">شِبس</span>
+                <span class="brand-tagline">شيفرة برمجية سريعة</span>
+            </span>
+        </a>
+
+        <nav class="nav-links" aria-label="القائمة الرئيسية">
+            <a href="#services">خدماتنا</a>
+            <a href="#architecture">كيف نبني</a>
+            <a href="#industries">قطاعاتنا</a>
+            <a href="projects.html">أعمالنا</a>
+            <a href="subscribe.html">اشترك</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
+
+        <a href="#contact" class="btn btn-primary btn-small header-cta">اطلب استشارة</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="القائمة">
+        <a href="#services">خدماتنا</a>
+        <a href="#architecture">كيف نبني</a>
+        <a href="#industries">قطاعاتنا</a>
+        <a href="projects.html">أعمالنا</a>
+        <a href="subscribe.html">اشترك</a>
+        <a href="#why">لماذا شِبس</a>
+        <a href="#contact">تواصل معنا</a>
+        <div class="mobile-nav-cta">
+            <a href="#contact" class="btn btn-primary">اطلب استشارة</a>
+            <a href="https://wa.me/963988592846" class="btn btn-outline" target="_blank" rel="noopener">واتساب</a>
+        </div>
+    </nav>
+</header>
+
+<main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="h-hero" id="top">
+        <div class="wrap h-hero-grid">
+            <div class="h-hero-copy">
+                <p class="h-kicker"><span class="live-dot" aria-hidden="true"></span>متاحون لمشاريع جديدة</p>
+
+                <h1 class="h-title" aria-label="نبني الأنظمة البرمجية التي تُشغّل أعمالكم">
+                    <span aria-hidden="true">نبني</span>
+                    <span class="h-rotator" aria-hidden="true"><span id="rotator">الأنظمة البرمجية</span><span class="caret"></span></span>
+                    <span aria-hidden="true">التي تُشغّل أعمالكم</span>
+                </h1>
+
+                <p class="h-lead">
+                    من برامج سطح المكتب إلى مواقع وتطبيقات الويب والأنظمة الإدارية المخصصة،
+                    نحوّل احتياجاتكم التقنية إلى برمجيات تعمل بدقة وموثوقية كل يوم.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">ابدأ مشروعك</a>
+                    <a href="projects.html" class="btn btn-outline">شاهد أعمالنا</a>
+                </div>
+
+                <dl class="h-facts">
+                    <div><dt><span class="stat-num" data-target="5" data-prefix="+">5+</span></dt><dd>سنوات خبرة تقنية</dd></div>
+                    <div><dt><span class="stat-num" data-target="5">5</span></dt><dd>قطاعات أعمال نخدمها</dd></div>
+                    <div><dt><span class="stat-num">1:1</span></dt><dd>تواصل مباشر مع المطوّر</dd></div>
+                </dl>
+            </div>
+
+            <div class="h-stage" id="heroStage" aria-hidden="true">
+                <div class="h-orbit h-orbit-1"><span></span></div>
+                <div class="h-orbit h-orbit-2"><span></span></div>
+                <div class="h-logo">
+                    <picture>
+                        <source srcset="img/logo-640.webp" type="image/webp">
+                        <img src="img/logo-640.jpg" alt="شعار شِبس" width="640" height="640" fetchpriority="high" decoding="async">
+                    </picture>
+                </div>
+                <div class="h-burst" id="burst"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SERVICES (bento) ============ -->
+    <section id="services" class="h-section">
+        <div class="wrap">
+            <div class="h-head">
+                <h2>خدماتنا</h2>
+                <p class="section-lead">نبني البرنامج المناسب لطريقة عملكم، على الجهاز أو في المتصفح أو في الجيب.</p>
+            </div>
+
+            <div class="bento">
+                <article class="tile tile-wide reveal">
+                    <div class="tile-body">
+                        <svg viewBox="0 0 32 32" width="30" height="30" class="tile-icon" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 16h22M16 5c3 3 4.5 7 4.5 11s-1.5 8-4.5 11c-3-3-4.5-7-4.5-11S13 8 16 5z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+                        <h3>مواقع وتطبيقات الويب</h3>
+                        <p>مواقع تعريفية سريعة وتطبيقات ويب متكاملة بلوحات تحكم وحسابات مستخدمين، تعمل على كل الأجهزة.</p>
+                        <ul class="tile-tags"><li>Blazor</li><li>Flask</li><li>HTML / CSS / JS</li></ul>
+                    </div>
+                    <div class="code-win" aria-hidden="true">
+                        <div class="code-bar"><i></i><i></i><i></i><span>Invoice.razor</span></div>
+<pre><code><span class="c-k">@page</span> <span class="c-s">"/invoices"</span>
+<span class="c-t">&lt;h1&gt;</span>الفواتير<span class="c-t">&lt;/h1&gt;</span>
+<span class="c-k">@foreach</span> (<span class="c-k">var</span> inv <span class="c-k">in</span> invoices)
+{
+  <span class="c-t">&lt;InvoiceRow</span> <span class="c-a">Item</span>=<span class="c-s">"inv"</span> <span class="c-t">/&gt;</span>
+}<span class="code-caret"></span></code></pre>
+                    </div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-body">
+                        <svg viewBox="0 0 32 32" width="30" height="30" class="tile-icon" aria-hidden="true"><rect x="4" y="6" width="24" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 26h8M16 22v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        <h3>تطبيقات سطح المكتب</h3>
+                        <p>برامج تعمل محلياً على أجهزة شركتكم، حتى بدون إنترنت، مبنية على طبيعة عملكم بالضبط.</p>
+                        <ul class="tile-tags"><li>WPF</li><li>WinUI 3</li></ul>
+                    </div>
+                </article>
+
+                <article class="tile reveal">
+                    <div class="tile-body">
+                        <svg viewBox="0 0 32 32" width="30" height="30" class="tile-icon" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13 25h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                        <h3>تطبيقات الجوال</h3>
+                        <p>تطبيقات أندرويد وiOS تصل عملاءكم وموظفيكم أينما كانوا، متصلة بنفس أنظمتكم.</p>
+                        <ul class="tile-tags"><li>Android</li><li>iOS</li></ul>
+                    </div>
+                </article>
+
+                <article class="tile tile-wide reveal">
+                    <div class="tile-body">
+                        <svg viewBox="0 0 32 32" width="30" height="30" class="tile-icon" aria-hidden="true"><path d="M16 4l11 5v7c0 6-4.5 10-11 12-6.5-2-11-6-11-12V9l11-5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                        <h3>أنظمة إدارية مخصصة</h3>
+                        <p>أنظمة فوترة ومخزون ودوام وعيادات، من قاعدة البيانات حتى التقارير، مع صلاحيات لكل مستخدم.</p>
+                        <ul class="tile-tags"><li>SQL Server</li><li>Active Directory</li><li>Windows Server</li></ul>
+                    </div>
+                    <div class="mini-dash" aria-hidden="true">
+                        <div class="md-row"><span>الفواتير هذا الشهر</span><b data-count="248">248</b></div>
+                        <div class="md-bars"><i style="--h:42%"></i><i style="--h:58%"></i><i style="--h:50%"></i><i style="--h:72%"></i><i style="--h:64%"></i><i style="--h:88%"></i><i style="--h:80%"></i></div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ ARCHITECTURE / SECURITY PIPELINE ============ -->
+    <section id="architecture" class="h-section h-arch">
+        <div class="wrap">
+            <div class="h-head">
+                <h2>كيف تتنقل بياناتكم داخل أنظمتنا</h2>
+                <p class="section-lead">كل طلب يعبر عشر طبقات قبل أن يلمس قاعدة البيانات. الطلب السليم يصل ويعود بالنتيجة، والهجوم يُكشف عند أول طبقة تلتقطه ويُطرد فوراً.</p>
+            </div>
+
+            <div class="arch-grid">
+                <div class="pipe" id="pipe">
+                    <div class="pipe-clients" role="list" aria-label="التطبيقات">
+                        <span class="client-chip" role="listitem">سطح المكتب</span>
+                        <span class="client-chip" role="listitem">مواقع الويب</span>
+                        <span class="client-chip" role="listitem">تطبيقات الويب</span>
+                        <span class="client-chip" role="listitem">الجوال</span>
+                        <span class="client-chip" role="listitem">الأنظمة</span>
+                    </div>
+                    <div class="pipe-legend" aria-hidden="true">
+                        <span><i class="lg req"></i>طلب</span>
+                        <span><i class="lg res"></i>استجابة</span>
+                        <span><i class="lg atk"></i>هجوم يُطرد</span>
+                    </div>
+                    <span class="pipe-hub" aria-hidden="true"></span>
+
+                    <ol class="layers" aria-label="طبقات معالجة الطلب">
+                    <li class="layer side-r" style="--row:1;--m:1">
+                        <span class="layer-node"><b>1</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">HTTPS / TLS</span>
+                                <h3>تشفير الاتصال</h3>
+                                <p>لا شيء يمر بدون قناة مشفّرة.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-l" style="--row:3;--m:2">
+                        <span class="layer-node"><b>2</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Authentication</span>
+                                <h3>من هو المستخدم؟</h3>
+                                <p>التحقق من هوية صاحب الطلب.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-r" style="--row:5;--m:3">
+                        <span class="layer-node"><b>3</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="3.5"/><path d="M11.5 12H20M17 12v3M20 12v2"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Authorization</span>
+                                <h3>ماذا يُسمح له أن يفعل؟</h3>
+                                <p>صلاحيات لكل مستخدم ودور.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-l" style="--row:7;--m:4">
+                        <span class="layer-node"><b>4</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Validation</span>
+                                <h3>هل البيانات صحيحة؟</h3>
+                                <p>النوع والطول والصيغة والنطاق.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-r" style="--row:9;--m:5">
+                        <span class="layer-node"><b>5</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16l-6 7v6l-4-2v-4z"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Sanitization</span>
+                                <h3>تنظيف وتوحيد البيانات</h3>
+                                <p>إزالة الشيفرات الخبيثة وتوحيد الصيغ.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-l" style="--row:11;--m:6">
+                        <span class="layer-node"><b>6</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 9h8M8 13h5M8 17h3"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Business Rules</span>
+                                <h3>هل العملية منطقية؟</h3>
+                                <p>قواعد عملكم مطبّقة في الكود.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-r" style="--row:13;--m:7">
+                        <span class="layer-node"><b>7</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3.5v5c0 5-3.4 8.3-8 9.5-4.6-1.2-8-4.5-8-9.5v-5z"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Rate Limit / CSRF</span>
+                                <h3>حماية إضافية</h3>
+                                <p>حسب نوع التطبيق وطبيعة الاستخدام.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-l" style="--row:15;--m:8">
+                        <span class="layer-node"><b>8</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Service / Controller</span>
+                                <h3>تنفيذ العملية</h3>
+                                <p>المنطق الذي يخدم طلبكم فعلاً.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-r" style="--row:17;--m:9">
+                        <span class="layer-node"><b>9</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6M14 4l-4 16"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">EF Core / Parameterized SQL</span>
+                                <h3>الوصول الآمن للبيانات</h3>
+                                <p>استعلامات مُعلَّمة لا تقبل الحقن.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    <li class="layer side-l is-db" style="--row:19;--m:10">
+                        <span class="layer-node"><b>10</b></span>
+                        <div class="layer-card">
+                            <svg viewBox="0 0 24 24" width="22" height="22" class="layer-icon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>
+                            <div class="layer-text">
+                                <span class="layer-en" dir="ltr">Database</span>
+                                <h3>قاعدة البيانات</h3>
+                                <p>تُقرأ البيانات أو تُحفظ بأمان.</p>
+                            </div>
+                            <span class="layer-flag" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                    </ol>
+                    <div class="packets" id="packets" aria-hidden="true"></div>
+                </div>
+
+                <aside class="sec-console" aria-label="سجل الحماية (عرض توضيحي)">
+                    <div class="sec-head">
+                        <span class="sec-dots"><i></i><i></i><i></i></span>
+                        <span class="sec-title" dir="ltr">security.log</span>
+                        <span class="sec-live"><span class="live-dot"></span>مباشر</span>
+                    </div>
+
+                    <div class="sec-stats">
+                        <div><b id="statOk">0</b><span>طلبات خُدمت</span></div>
+                        <div class="bad"><b id="statBlocked">0</b><span>هجمات طُردت</span></div>
+                    </div>
+
+                    <ul class="sec-log" id="secLog">
+                        <li class="ok"><span class="code">200</span><bdi dir="ltr">GET /api/invoices</bdi><small>38ms</small></li>
+                        <li class="bad"><span class="code">400</span><span>طُرد: حقن SQL <small>عند Validation</small></span></li>
+                        <li class="ok"><span class="code">201</span><bdi dir="ltr">POST /api/patients</bdi><small>51ms</small></li>
+                    </ul>
+
+                    <div class="sec-legend">
+                        <span><i class="lg req"></i>طلب</span>
+                        <span><i class="lg res"></i>استجابة</span>
+                        <span><i class="lg atk"></i>هجوم يُطرد</span>
+                    </div>
+                    <p class="sec-note">محاكاة توضيحية لطريقة عمل الحماية في أنظمتنا.</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ INDUSTRIES ============ -->
+    <section id="industries" class="h-section">
+        <div class="wrap">
+            <div class="h-head">
+                <h2>قطاعات نعمل معها</h2>
+                <p class="section-lead">خبرة عملية في بناء أنظمة لقطاعات مختلفة، لكل منها متطلباته الخاصة.</p>
+            </div>
+
+            <ul class="ind-list">
+                <li class="reveal">
+                    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 12h2l1-2 2 4 1-2h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div><h3>الرعاية الصحية</h3><p>إدارة العيادات والمواعيد والسجلات الطبية.</p></div>
+                </li>
+                <li class="reveal">
+                    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 7h16l-1.5 12h-13z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                    <div><h3>التجارة والمخزون</h3><p>فوترة بالباركود وإدارة مخزون للمتاجر.</p></div>
+                </li>
+                <li class="reveal">
+                    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 19c0-3.3 2.7-5 6-5s6 1.7 6 5M16 5.5a3 3 0 0 1 0 5M18 14c2 .6 3 2.2 3 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    <div><h3>الموارد البشرية</h3><p>تتبع الدوام وبوابات داخلية للموظفين والمهام.</p></div>
+                </li>
+                <li class="reveal">
+                    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 20v-5h4v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                    <div><h3>الخدمات الميدانية والعقارية</h3><p>مواقع وأنظمة حجز لأعمال الصيانة والخدمات.</p></div>
+                </li>
+                <li class="reveal">
+                    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 4v16M6 20h12M5 8h14M7 8l-3 6a3 3 0 0 0 6 0zM17 8l-3 6a3 3 0 0 0 6 0z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                    <div><h3>القطاع القانوني</h3><p>إدارة الملفات والمواعيد في المكاتب القانونية.</p></div>
+                </li>
+                <li class="ind-more reveal">
+                    <a href="#contact"><b>قطاعكم غير موجود؟</b><span>أخبرونا بطبيعة عملكم</span></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="h-section">
+        <div class="wrap">
+            <div class="h-head">
+                <h2>طريقة عملنا</h2>
+                <p class="section-lead">مسار واضح من الفكرة الأولى إلى نظام يعمل فعلياً لديكم.</p>
+            </div>
+
+            <ol class="timeline" id="timeline">
+                <li><span class="tl-num">01</span><h3>التواصل والتحليل</h3><p>نستمع لاحتياجاتكم ونحدد نطاق المشروع ومتطلباته بدقة.</p></li>
+                <li><span class="tl-num">02</span><h3>التصميم والتخطيط</h3><p>نضع مخططاً تقنياً وتصميم واجهات يناسب طبيعة عملكم.</p></li>
+                <li><span class="tl-num">03</span><h3>التطوير والبناء</h3><p>نبني النظام على مراحل، ونطلعكم على التقدم أولاً بأول.</p></li>
+                <li><span class="tl-num">04</span><h3>التسليم والدعم</h3><p>نسلّم النظام جاهزاً للعمل، ونستمر بدعمكم بعد الإطلاق.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- ============ TECH ============ -->
+    <section class="tech" aria-labelledby="techHeading">
+        <div class="wrap">
+            <h2 class="tech-heading" id="techHeading">نعمل بتقنيات موثوقة</h2>
+            <ul class="sr-only">
+                <li>C# / .NET</li><li>WPF و WinUI 3</li><li>Blazor</li><li>Python / Flask</li><li>SQL Server</li><li>Windows Server</li>
+            </ul>
+        </div>
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track" id="marqueeTrack">
+                <span class="tech-tag">C# / .NET</span>
+                <span class="tech-tag">WPF &amp; WinUI 3</span>
+                <span class="tech-tag">Blazor</span>
+                <span class="tech-tag">Python / Flask</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">Windows Server</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section id="why" class="h-section">
+        <div class="wrap">
+            <div class="h-head">
+                <h2>لماذا شِبس</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-item reveal">
+                    <h3>شيفرة نظيفة</h3>
+                    <p>نكتب كوداً واضحاً وقابلاً للصيانة، حتى يبقى نظامكم سهل التطوير على المدى الطويل.</p>
+                </div>
+                <div class="why-item reveal">
+                    <h3>تواصل مباشر</h3>
+                    <p>تتحدثون مع من يكتب الكود نفسه، من أول اجتماع حتى التسليم، بلا وسطاء وبلا مفاجآت.</p>
+                </div>
+                <div class="why-item reveal">
+                    <h3>دعم بعد التسليم</h3>
+                    <p>نبقى إلى جانبكم بعد الإطلاق لأي تطوير إضافي أو دعم تقني تحتاجونه.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="h-section h-contact">
+        <div class="wrap">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h2>لنبدأ مشروعكم</h2>
+                    <p>حدّثونا عن فكرتكم، ونرد عليكم بخطوات عملية للبدء.</p>
+
+                    <div class="quick-links">
+                        <a class="quick-link" href="https://wa.me/963988592846" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 9.5c.3 1.8 2.2 3.9 4.3 4.5l1.2-1.1 1.8.8c-.3 1.2-1.3 1.8-2.4 1.6-3.2-.6-5.6-3.1-6.1-6.2-.1-1 .5-2 1.6-2.3l.8 1.8z" fill="currentColor"/></svg>
+                            <span><b>واتساب</b><small dir="ltr">+963 988 592 846</small></span>
+                        </a>
+                        <a class="quick-link" href="mailto:shibs@outlook.de">
+                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 6.5L12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+                            <span><b>البريد الإلكتروني</b><small>shibs@outlook.de</small></span>
+                        </a>
+                        <div class="quick-link static">
+                            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11z" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+                            <span><b>الموقع</b><small>سوريا، ونعمل عن بُعد</small></span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="field">
+                        <label for="fName">الاسم</label>
+                        <input id="fName" name="name" type="text" autocomplete="name" required>
+                    </div>
+
+                    <fieldset class="field chips">
+                        <legend>نوع المشروع</legend>
+                        <label><input type="radio" name="type" value="موقع ويب"><span>موقع ويب</span></label>
+                        <label><input type="radio" name="type" value="تطبيق ويب"><span>تطبيق ويب</span></label>
+                        <label><input type="radio" name="type" value="برنامج سطح مكتب"><span>سطح مكتب</span></label>
+                        <label><input type="radio" name="type" value="تطبيق جوال"><span>تطبيق جوال</span></label>
+                        <label><input type="radio" name="type" value="نظام إداري"><span>نظام إداري</span></label>
+                        <label><input type="radio" name="type" value="غير محدد بعد"><span>لست متأكداً</span></label>
+                    </fieldset>
+
+                    <div class="field">
+                        <label for="fMsg">تفاصيل المشروع</label>
+                        <textarea id="fMsg" name="message" rows="4" required placeholder="ماذا تريد أن يفعل البرنامج؟ ومن سيستخدمه؟"></textarea>
+                    </div>
+
+                    <p class="form-error" id="formError" role="alert" hidden></p>
+
+                    <div class="form-foot">
+                        <button type="submit" class="btn btn-primary">أرسل عبر واتساب</button>
+                        <small>سيُفتح واتساب ورسالتك جاهزة للإرسال.</small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="h-footer">
+    <div class="wrap footer-grid">
+        <div class="footer-brand">
+            <a href="index.html" class="brand brand-footer">
+                <span class="brand-mark"><img src="img/logo-96.png" alt="" width="42" height="42"></span>
+                <span class="brand-text">
+                    <span class="brand-name">شِبس</span>
+                    <span class="brand-tagline">شيفرة برمجية سريعة</span>
+                </span>
+            </a>
+            <p>برامج سطح المكتب، الويب، الجوال، والأنظمة الإدارية المخصصة.</p>
+        </div>
+        <nav class="footer-col" aria-label="روابط الموقع">
+            <h3>الموقع</h3>
+            <a href="#services">خدماتنا</a>
+            <a href="projects.html">أعمالنا</a>
+            <a href="subscribe.html">اشترك</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
+        <nav class="footer-col" aria-label="روابط قانونية">
+            <h3>قانوني</h3>
+            <a href="impressum.html">بيانات الناشر</a>
+            <a href="datenschutz.html">سياسة الخصوصية</a>
+        </nav>
+        <div class="footer-col">
+            <h3>تواصل</h3>
+            <a href="mailto:shibs@outlook.de">shibs@outlook.de</a>
+            <a href="tel:+963988592846" dir="ltr">+963 988 592 846</a>
+        </div>
+    </div>
+    <div class="wrap footer-bottom">
+        <p class="footer-copy">© <span id="year">2026</span> شِبس. جميع الحقوق محفوظة.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
