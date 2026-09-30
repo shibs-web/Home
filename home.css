@@ -64,7 +64,7 @@
     margin-bottom: 1.5rem;
 }
 .h-title > span{ display: block; }
-.h-rotator{ font-size: .86em; line-height: 1.45; min-height: 1.45em; white-space: nowrap; }
+.h-rotator{ font-size: .86em; line-height: 1.45; height: 1.65em; white-space: nowrap; } /* fixed height: the line keeps its size even while the word is erased */
 #rotator{
     display: inline-block;
     padding: .1em 0 .12em;     /* keeps the gradient from clipping dots above/below the letters */
@@ -557,7 +557,7 @@ a.quick-link:hover{ border-color: rgba(245,187,46,.45); transform: translateX(-4
     .h-stage{ width: min(250px, 66%); }
     .h-kicker{ margin-bottom: 1.1rem; font-size: .82rem; }
     .h-title{ font-size: clamp(1.65rem, 7.2vw, 2.2rem); margin-bottom: 1.1rem; }
-    .h-rotator{ white-space: nowrap; min-height: 1.45em; }
+    .h-rotator{ white-space: nowrap; height: 1.65em; }
     .h-lead{ font-size: 1rem; margin-bottom: 1.6rem; }
     .hero-actions{ width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
     .hero-actions .btn{ padding: .85rem 1rem; }
